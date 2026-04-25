@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Rishi To-Do App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background: lightblue;
+            border-radius: 3PX;
+        }
+
+        input {
+            padding: 10px;
+            width: 200px;
+        }
+
+        button {
+            padding: 10px;
+            background: orange;
+            border: none;
+            cursor: pointer;
+            border-radius: 10PX;
+        }
+
+        li {
+            list-style: none;
+            margin: 10px;
+            background: white;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>📝 Rishi To-Do App</h2>
+
+    <input type="text" id="task" placeholder="Enter task">
+    <button onclick="addTask()">Add</button>
+
+    <ul id="list"></ul>
+
+    <script>
+        function addTask() {
+            let task = document.getElementById("task").value;
+
+            if (task == "") {
+                alert("Please enter task");
+                return;
+            }
+
+            let li = document.createElement("li");
+            li.innerHTML = task + " <button onclick='this.parentElement.remove()'>❌</button>";
+
+            document.getElementById("list").appendChild(li);
+
+            document.getElementById("task").value = "";
+        }
+    </script>
+
+</body>
+
+</html>
